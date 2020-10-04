@@ -1,6 +1,13 @@
 import React, { Component } from "react";
 import { Button } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import TextField from "@material-ui/core/TextField";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import Box from "@material-ui/core/Box";
+import { sizing } from "@material-ui/system";
 
 class Calculator extends Component {
   state = {
@@ -31,7 +38,11 @@ class Calculator extends Component {
   render() {
     return (
       <div>
-        <h1>Checkout Calculator</h1>
+        <AppBar position="static">
+          <Toolbar>
+            <h3>Checkout Calculator</h3>
+          </Toolbar>
+        </AppBar>
         {/*Grid Level for Two main columns*/}
         <Grid
           container
@@ -41,10 +52,30 @@ class Calculator extends Component {
           justify="space-evenly"
         >
           <Grid item>
-            <h3>Catalog</h3>
-            <span>
-              <Button variant="outlined">Create New Item</Button>
-            </span>
+            <h3 justify="left">Catalog</h3>
+            <form noValidate autoComplete="off">
+              <TextField
+                id="standard-basic"
+                style={{ marginRight: "0.8rem" }}
+                label="Enter Item Name"
+              />
+              <TextField
+                id="standard-basic"
+                style={{ marginRight: "0.8rem" }}
+                label="Enter Item Price"
+              />
+              <Button variant="outlined" style={{ marginTop: "0.8rem" }}>
+                Create New Item
+              </Button>
+            </form>
+            <Box
+              style={{ marginTop: "0.8rem" }}
+              Topwidth={600}
+              height={370}
+              border={1}
+            >
+              List of Items go here
+            </Box>
           </Grid>
 
           {/*Grid Level for right side of page*/}
@@ -53,28 +84,30 @@ class Calculator extends Component {
               <Grid item>
                 <h3>Shopping Cart</h3>
               </Grid>
-              <Grid item xs={12}>
-                <span>{this.formatNumberOfItems()}</span>
+              <Grid item xs={12} height="20rem">
+                <Box width={350} height={250} border={1} marginBottom="0.8rem">
+                  {this.formatNumberOfItems()}
+                </Box>
               </Grid>
-            </Grid>
 
-            <h5>Number of Bags Used</h5>
-            <span>{this.state.bags_used}</span>
-            <Button
-              variant="contained"
-              size="small"
-              onClick={this.bagIncrement}
-            >
-              +
-            </Button>
-            <Button
-              variant="contained"
-              size="small"
-              onClick={this.bagDecrement}
-            >
-              -
-            </Button>
-            <Grid container spacing={2} direction="column" alignItems="center">
+              <Grid item alignContent="center">
+                Number of Bags Used: {this.state.bags_used}
+                <Button
+                  variant="contained"
+                  size="small"
+                  onClick={this.bagIncrement}
+                  style={{ marginLeft: "0.8rem" }}
+                >
+                  +
+                </Button>
+                <Button
+                  variant="contained"
+                  size="small"
+                  onClick={this.bagDecrement}
+                >
+                  -
+                </Button>
+              </Grid>
               <Grid item>
                 <text>Subtotal: $</text>
                 {this.state.subtotal.toFixed(2)}
