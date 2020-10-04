@@ -55,12 +55,10 @@ class Calculator extends Component {
             <h3 justify="left">Catalog</h3>
             <form noValidate autoComplete="off">
               <TextField
-                id="standard-basic"
                 style={{ marginRight: "0.8rem" }}
                 label="Enter Item Name"
               />
               <TextField
-                id="standard-basic"
                 style={{ marginRight: "0.8rem" }}
                 label="Enter Item Price"
               />
@@ -85,13 +83,16 @@ class Calculator extends Component {
                 <h3>Shopping Cart</h3>
               </Grid>
               <Grid item xs={12} height="20rem">
-                <Box width={350} height={250} border={1} marginBottom="0.8rem">
+                <Box width={350} height={250} border={1}>
                   {this.formatNumberOfItems()}
                 </Box>
               </Grid>
 
-              <Grid item alignContent="center">
-                Number of Bags Used: {this.state.bags_used}
+              <Grid item>
+                <text style={{ fontWeight: "bold" }}>
+                  Number of Bags Used:{" "}
+                </text>
+                {this.state.bags_used}
                 <Button
                   variant="contained"
                   size="small"
@@ -109,14 +110,31 @@ class Calculator extends Component {
                 </Button>
               </Grid>
               <Grid item>
-                <text>Subtotal: $</text>
-                {this.state.subtotal.toFixed(2)}
+                <Box style={{ textAlign: "center" }}>
+                  <text style={{ fontWeight: "bold" }}>Subotal: </text>$
+                  {this.state.subtotal.toFixed(2)}
+                  <text style={{ fontWeight: "bold", marginLeft: "0.8rem" }}>
+                    Total:{" "}
+                  </text>
+                  ${(this.state.subtotal * 1.13).toFixed(2)}
+                </Box>
+                <form noValidate autoComplete="off">
+                  <TextField
+                    style={{ marginRight: "1rem" }}
+                    label="Enter Discount Code"
+                  />
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    style={{ marginTop: "0.8rem" }}
+                  >
+                    Apply Discount Code
+                  </Button>
+                </form>
               </Grid>
               <Grid item>
-                <text>Total: $</text>
-                {(this.state.subtotal * 1.13).toFixed(2)}
+                <Button variant="contained">Checkout</Button>
               </Grid>
-              <Button variant="contained">Checkout</Button>
             </Grid>
           </Grid>
         </Grid>
