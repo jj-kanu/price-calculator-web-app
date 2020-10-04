@@ -62,7 +62,11 @@ class Calculator extends Component {
                 style={{ marginRight: "0.8rem" }}
                 label="Enter Item Price"
               />
-              <Button variant="outlined" style={{ marginTop: "0.8rem" }}>
+              <Button
+                color="primary"
+                variant="outlined"
+                style={{ marginTop: "0.8rem" }}
+              >
                 Create New Item
               </Button>
             </form>
@@ -125,6 +129,7 @@ class Calculator extends Component {
                   />
                   <Button
                     size="small"
+                    color="secondary"
                     variant="outlined"
                     style={{ marginTop: "0.8rem" }}
                   >
@@ -133,7 +138,16 @@ class Calculator extends Component {
                 </form>
               </Grid>
               <Grid item>
-                <Button variant="contained">Checkout</Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  style={{ marginRight: "1rem" }}
+                >
+                  Checkout
+                </Button>
+                <Button variant="contained" color="primary">
+                  Past Transactions
+                </Button>
               </Grid>
             </Grid>
           </Grid>
