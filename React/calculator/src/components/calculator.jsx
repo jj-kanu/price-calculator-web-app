@@ -98,6 +98,7 @@ class Calculator extends Component {
   createNewItem = () => {
     if (
       this.state.new_item_name != "" &&
+      isNaN(this.state.new_item_name) &&
       !isNaN(this.state.new_item_price) &&
       this.state.new_item_price > 0
     ) {
@@ -130,23 +131,26 @@ class Calculator extends Component {
           ],
         });
       } else {
-        let temp2 = [];
+        var temp2 = [];
+        var tindex = this.state.reset_catalog_entry;
         for (var i = 0; i < this.state.catalog.length; i++) {
-          if (i != 4 + this.reset_catalog_entry) {
-            temp2.push(this.state.catalog[i]);
-          } else {
+          if (i == tindex) {
             temp2.push({
               name: this.state.new_item_name,
-              price: this.state.new_item_price,
+              price: parseFloat(this.state.new_item_price).toFixed(2),
             });
+          } else {
+            temp2.push(this.state.catalog[i]);
           }
         }
-        this.setState({ catalog: temp2 });
-        if (this.reset_catalog_entry < 4) {
-          this.setState({ reset_catalog_entry: this.reset_catalog_entry + 1 });
+        if (tindex < 8) {
+          this.setState({
+            reset_catalog_entry: parseInt(this.state.reset_catalog_entry) + 1,
+          });
         } else {
           this.setState({ reset_catalog_entry: 0 });
         }
+        this.setState({ catalog: temp2 });
       }
     }
   };
