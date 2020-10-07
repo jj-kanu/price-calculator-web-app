@@ -323,6 +323,7 @@ class Calculator extends Component {
     this.setState({ past_subtotal: this.state.subtotal });
     this.setState({ past_nob: this.state.bags_used });
     this.setState({ cart: [] });
+    this.setState({ discount_applied: false });
     this.setState({ bags_used: 0 });
     this.setState({ subtotal: 0 });
   };

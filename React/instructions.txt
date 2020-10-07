@@ -1,0 +1,38 @@
+TO RUN:
+Download calculator folder.
+cd to folder, and run npm start in terminal.
+
+*Note: Can ignore python and csv files in repo. Although functional, implementation was changed and
+they are no longer used.
+
+
+CATALOG:
+Click on Items in the catalog to add to cart. Clicking an item already in the cart will increment 
+the quantity in cart.
+
+Four preset items are placed in the catalog for you, but feel free to create new items. 
+Place an item name and price into the corresponding text fields and click Create Item to add it 
+to the catalog. If the item name you typed matches that of an item already in the catalog, its price 
+will be updated to the new one you placed.
+
+The catalog has a size limit of 9, so subsequent creations past limit will overwrite entries in the 
+catalog.
+
+*Note: Create Item will only work given valid input, such as a string for name and numerical value 
+above 0 for price.
+
+SHOPPING CART:
+Items added to cart will appear here. Items can be incremented and decremented with the corresponding 
++ and - buttons. Pressing - when quantity is 1 will remove the item from cart. The cart has a limit of
+6 for unique items, so remove items to add new items to cart. Bags can also be added to purchase for 
+5 cents each.
+
+Use code "discount30" to apply a 30% off discount to purchase. Subsequent items added to cart will 
+have the discount automatically applied to them. Other code attempts will do nothing to subtotal.
+
+Pressing Checkout will reset the cart to empty, and the most recent transaction will be saved in 
+browser memory.
+
+Pressing Past Transaction will fill the cart with items from the previous purchase and display the 
+subtotal and total. Adding to cart and incrementing is disabled while viewing last transaction, so 
+press Past Transaction again to reset cart. 
