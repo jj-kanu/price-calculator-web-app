@@ -36,3 +36,8 @@ browser memory.
 Pressing Past Transaction will fill the cart with items from the previous purchase and display the 
 subtotal and total. Adding to cart and incrementing is disabled while viewing last transaction, so 
 press Past Transaction again to reset cart. 
+
+TESTING:
+Test infrastructure is only partially completed.
+package.json includes scripts to run tests from Calculator.test.js.
+run npm test to check if Calculator renders.
