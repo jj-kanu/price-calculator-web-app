@@ -6,42 +6,36 @@ Checkout Calculator
 
 4 Main Functions
 1. create_item(str iname, double price):
-Writes to CSV item name, item price. (grocery_items.csv)
--Checks if item already in csv, if not, new item. if already in csv, overwrite price.
+Writes to catalog item name, item price.
+-Checks if item already in catalog, if not, new item. if already in catalog, overwrite price.
 
 2. add_item(str iname):
-Searches CSV to see if item there. if it is, adds to shopping cart: item name, price, and quantity(starts at 1).
--if not in csv return (item does not exist, create item)
-
-3. remove_item(str iname):
-Removes item from shopping cart if item is there. If not, return(item not in shopping cart)
+Searches catalog to see if item there. if it is, adds to shopping cart: item name, price, and quantity(starts at 1).
 
 4. checkout():
-Prints shopping cart to a csv file(transactions.csv).
-Prints subtotal and Total.
+Saves latest transaction.
 -clears cart
 
-Extra Functions: (Done if have time. Listed from most important to least.)
-5. increment_quantity(str iname):
+Extra Functions: 
+5. increment_quantity():
 if item is in shopping cart, increase quantity by one.
 
-6. decrement_quantity(str iname):
+6. decrement_quantity():
 if item is in shopping cart, decrease quantity by one. if quantity is ==1, remove item().
 
-7. cancel_transaction():
-Emptys shopping cart and reset subtotal and total.
+8. apply_discount():
+Applies discount to subtotal.
 
-8. apply_discount(double dicount_amount):
-Applies discount percent to total.
+9. view_past_transaction():
+Displays past transaction.
 
-9. view_past_transactions():
-Displays past transactions by reading the transactions.csv.
 
-Variables:
-Shopping Cart is a dictionary with a list of size 2. Name of item is the key, the list contains price and quantity.
-ex. "banana": [0.33,1]
-
-Sources:
+Resources:
+React Tutorial for Beginners [React js] - Programming With Mosh: https://youtu.be/Ke90Tje7VS0
+React + Material UI #1: Introduction - 2020 Edition - Anthony Sistilli:https://youtu.be/pHclLuRolzE
+React + Material UI #2: Actually coding a UX design - Anthony Sistilli:https://www.youtube.com/watch?v=tKzSnjWPtEw
+#3 Writing Unit Tests With Jest - React Testing For Beginners - LevelUpTuts:https://www.youtube.com/watch?v=QzznzOlkgGw&t=318s
+ReactJS Tutorial - 21 - Basics of Form Handling - Codevolution:https://youtu.be/7Vo_VCcWupQ
 https://stackabuse.com/writing-to-files-in-node-js/
 */
 
@@ -474,6 +468,8 @@ class Calculator extends Component {
                   -
                 </Button>
               </Grid>
+
+              {/*Display Subtotal and Total*/}
               <Grid item>
                 <Box style={{ textAlign: "center" }}>
                   <text style={{ fontWeight: "bold" }}>Subotal: </text>$
@@ -483,6 +479,8 @@ class Calculator extends Component {
                   </text>
                   ${parseFloat(this.state.subtotal * 1.13).toFixed(2)}
                 </Box>
+
+                {/*Discount*/}
                 <form noValidate autoComplete="off">
                   <TextField
                     style={{ marginRight: "1rem" }}
@@ -502,6 +500,8 @@ class Calculator extends Component {
                   </Button>
                 </form>
               </Grid>
+
+              {/*Checkout and Past Transaction*/}
               <Grid item>
                 <Button
                   variant="contained"
@@ -526,6 +526,7 @@ class Calculator extends Component {
     );
   }
 
+  /*
   renderRow(props) {
     const { index, style } = props;
 
@@ -535,7 +536,6 @@ class Calculator extends Component {
       </ListItem>
     );
   }
-  /*
   renderRow.propTypes = {
     index: PropTypes.number.isRequired,
     style: PropTypes.object.isRequired,
