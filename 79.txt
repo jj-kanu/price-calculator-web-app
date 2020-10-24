@@ -1,0 +1,76 @@
+Team 79
+James Kanu
+
+
+
+
+
+Final Grade: 35 * 2 = 70
+
+-------------------
+-------------------
+
+
+
+A.	Web App Grade: 35
+---------------------
+
+1-	Report: 22
+A fairly reasonable comparison between alternative technologies for web development. The report fairly addresses all the expectations of the assignment.
+The criteria for comparing the alternatives need to be more technical (conveying research about options) and the choice of an alternative needs to be justified logically with acceptable reasons (learning time, leightweightness, adpatability. ,,,,)
+
+
+ 
+2-	Application:
+
+- Final Web Page:  10
+
+
+
+- Unit Test: 1
+soem attempts to add unit tests.
+
+- Instructions on how to reproduce: 2
+Fairly reasonable information about how to work with the project as a developer.
+More details about how to set up and run the project. What to install form where ...
+
+
+ 
+  
+3-	Pipeline (bonus): 0
+CircleCI is no set up and used in the project.
+
+
+
+
+-----------------------------------------
+-----------------------------------------
+-----------------------------------------
+
+
+B.	Mobile App Grade: 
+-------------------------
+1-	Report:  0
+
+
+
+
+ 
+2-	Application: 
+
+- Final APK: 0
+
+
+
+
+
+
+- Unit Test:  0
+
+
+
+- Instructions on how to reproduce: 0
+
+
+3-	Pipeline (bonus): 0
+
